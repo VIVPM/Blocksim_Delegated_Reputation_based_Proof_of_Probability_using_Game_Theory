@@ -103,11 +103,10 @@ class InputsConfig:
         from Models.Ethereum.Node import Node
         # here as an example we define three nodes by assigning a unique id for each one + % of hash (computing) power
         for i in range(Nn):
-            NODES.append(Node(id = i,Stakes=random.randint(32,200)))
-        TOTAL_Stakes = sum([miner.Stakes for miner in NODES])
+            NODES.append(Node(id = i,Stakes=random.randint(100,200)))
 
         ''' Simulation Parameters '''
-        simTime = 100  # the simulation length (in seconds)
+        simTime = 2500  # the simulation length (in seconds)
         Runs = 1  # Number of simulation runs
 
         ''' Input configurations for AppendableBlock model '''

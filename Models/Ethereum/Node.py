@@ -1,3 +1,4 @@
+import random
 from Models.Ethereum.Block import Block
 from Models.Node import Node as BaseNode
 
@@ -15,19 +16,17 @@ class Node(BaseNode):
         self.transactionsPool= []
         self.blocks= 0# total number of blocks mined in the main chain
         self.balance= 0# to count all reward that a miner made, including block rewards + uncle rewards + transactions fees
-        self.delegated = False
-        self.count_delegated = 10
-        self.game_rounds = 20
-        self.count_valid = 5
-        self.count_invalid = 5
-        self.miner = False
-        self.games_blocks = 10
-        self.games_attack = 10
-        self.count_attack = 5
-        self.count_non_attack = 5
-        self.current_block_invalid_game = 0
-        self.current_attack_strategy_game = 0
-        self.reputation = 1
+        self.delegated = False #whether node is delegated or not
+        self.count_delegated = 10 # Number of times the node became delegated node
+        self.game_rounds = 20 # Number of rounds
+        self.count_invalid = 5 # Number of invalid blocks created
+        self.miner = False # whether node is miner node or not
+        self.games_blocks = 10 # Number of games played in first stage game
+        self.games_attack = 10 # Number of games played in second stage game
+        self.count_attack = 5 # Number of times miner used attacking strategy
+        self.current_block_invalid_game = 0 #Current number of invalid blocks created by node while playing with n delegated nodes
+        self.current_attack_strategy_game = 0 #Current number of attacks used by node while playing with m miner nodes
+        self.reputation = (random.randint(80,100))
 
     def generate_gensis_block():
         from InputsConfig import InputsConfig as p
