@@ -51,7 +51,7 @@ def StageThree(count3,TOTAL_Stakes):
             elif p.NODES[i].miner == True and p.NODES[j].miner == True:
                 x = random.randint(0,1)
                 y = random.randint(0,1)
-                if x == 1 and y == 1: #1 - non-broadcast, 0 - broadcast
+                if x == 1 and y == 1: #0 - non-broadcast, 1 - broadcast
                     p.NODES[i].games_non_broadcast += 1
                     p.NODES[j].games_non_broadcast += 1
                 elif x == 0 and y == 1:

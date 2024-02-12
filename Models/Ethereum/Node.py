@@ -17,7 +17,7 @@ class Node(BaseNode):
         self.blocks= 0# total number of blocks mined in the main chain
         self.balance= 0# to count all reward that a miner made, including block rewards + uncle rewards + transactions fees
         self.delegated = False #whether node is delegated or not
-        self.count_delegated = 10 # Number of times the node became delegated node
+        self.count_delegated = 10 # Number of times the node is selected delegated node
         self.game_rounds = 20 # Number of rounds
         self.count_invalid = 5 # Number of invalid blocks created
         self.miner = False # whether node is miner node or not
@@ -25,7 +25,7 @@ class Node(BaseNode):
         self.games_non_broadcast = 10 # Number of games played in second stage game
         self.count_non_broadcast = 5 # Number of times miner used non_broadcast strategy
         self.current_block_invalid_game = 0 #Current number of invalid blocks created by node while playing with n delegated nodes
-        self.current_non_broadcast_strategy_game = 0 #Current number of non_broadcasts used by node while playing with m miner nodes
+        self.current_non_broadcast_strategy_game = 0 #Current number times the miner node didn't broadcast the block while playing with n miner nodes
         self.reputation = (random.randint(80,100))
 
     def generate_gensis_block():
