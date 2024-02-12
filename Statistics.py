@@ -93,7 +93,7 @@ class Statistics:
         df3.to_excel(writer, sheet_name='Profit')
         df4.to_excel(writer,sheet_name='Chain')
 
-        writer.save()
+        writer._save()
 
     ########################################################### Reset all global variables used to calculate the simulation results ###########################################################################################
     def reset():

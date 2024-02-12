@@ -106,7 +106,7 @@ class InputsConfig:
             NODES.append(Node(id = i,Stakes=random.randint(100,200)))
 
         ''' Simulation Parameters '''
-        simTime = 2500  # the simulation length (in seconds)
+        simTime = 100  # the simulation length (in seconds)
         Runs = 1  # Number of simulation runs
 
         ''' Input configurations for AppendableBlock model '''

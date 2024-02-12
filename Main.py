@@ -51,75 +51,59 @@ def StageThree(count3,TOTAL_Stakes):
             elif p.NODES[i].miner == True and p.NODES[j].miner == True:
                 x = random.randint(0,1)
                 y = random.randint(0,1)
-                if x == 1 and y == 1: #1 - non-attack, 0 - attack
-                    # p.NODES[i].count_non_attack = p.NODES[i].count_non_attack + 1
-                    # p.NODES[j].games_attack = p.NODES[j].count_non_attack + 1
-                    p.NODES[i].games_attack += 1
-                    p.NODES[j].games_attack += 1
+                if x == 1 and y == 1: #1 - non-broadcast, 0 - broadcast
+                    p.NODES[i].games_non_broadcast += 1
+                    p.NODES[j].games_non_broadcast += 1
                 elif x == 0 and y == 1:
-                    p.NODES[j].games_attack = p.NODES[j].games_attack + 1
-                    # if len(list1) < 400:
-                        # if p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack) > 0 and (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack)) < 0.5:
-                    p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack))
+                    p.NODES[j].games_non_broadcast = p.NODES[j].games_non_broadcast + 1
+                    p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast))
                     if len(list1) < 20:
-                        list1.append((p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack)))
-                    # else:
-                    #     p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack))
-                    p.NODES[i].count_attack = p.NODES[i].count_attack + 1
-                    # p.NODES[i].games_attack += 1
-                    p.NODES[i].games_attack += 1
-                    p.NODES[i].current_attack_strategy_game += 1
+                        list1.append((p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast)))
+                    p.NODES[i].count_non_broadcast = p.NODES[i].count_non_broadcast + 1
+                    p.NODES[i].games_non_broadcast += 1
+                    p.NODES[i].current_non_broadcast_strategy_game += 1
         
                 elif x == 1 and y == 0:
-                    p.NODES[j].games_attack = p.NODES[j].games_attack + 1
-                    # if len(list1) < 400:
-                        # if (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack)) > 0 and (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack)) < 0.2:
-                    p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack))
+                    p.NODES[j].games_non_broadcast = p.NODES[j].games_non_broadcast + 1
+                    p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast))
                     if len(list1) < 20:
-                        list1.append((p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack)))
-                    # else:
-                    # p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack))
-                    p.NODES[j].count_attack = p.NODES[j].count_attack + 1
-                    p.NODES[i].games_attack += 1
-                    p.NODES[j].current_attack_strategy_game += 1
-                    # p.NODES[j].games_attack += 1
+                        list1.append((p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast)))
+                   
+                    p.NODES[j].count_non_broadcast = p.NODES[j].count_non_broadcast + 1
+                    p.NODES[i].games_non_broadcast += 1
+                    p.NODES[j].current_non_broadcast_strategy_game += 1
+                  
             
                 else:
-                    # if len(list1) < 400:
-                        # if (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack)) > 0 and (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack)) < 0.2:
-                    p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack))
+                    p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast))
                     if len(list1) < 20:
-                        list1.append((p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack)))
-                
-                        # if (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack)) > 0 and (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack)) < 0.2:
-                    p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack))
+                        list1.append((p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast)))
+                   
+                    p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast))
                     if len(list1) < 20:    
-                        list1.append((p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack)))
-                    # else:
-                    # p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_attack/p.NODES[i].games_attack))
-                    # p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_attack/p.NODES[j].games_attack))
-                    p.NODES[i].count_attack = p.NODES[i].count_attack + 1
-                    p.NODES[j].count_attack = p.NODES[j].count_attack + 1
-                    p.NODES[i].games_attack += 1
-                    p.NODES[j].games_attack += 1
-                    p.NODES[i].current_attack_strategy_game += 1
-                    p.NODES[j].current_attack_strategy_game += 1
+                        list1.append((p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast)))
+                    
+                    p.NODES[i].count_non_broadcast = p.NODES[i].count_non_broadcast + 1
+                    p.NODES[j].count_non_broadcast = p.NODES[j].count_non_broadcast + 1
+                    p.NODES[i].games_non_broadcast += 1
+                    p.NODES[j].games_non_broadcast += 1
+                    p.NODES[i].current_non_broadcast_strategy_game += 1
+                    p.NODES[j].current_non_broadcast_strategy_game += 1
                
     
     count5 = 0
     if count3 > 1:
         for i in range(p.Nn):
             if p.NODES[i].miner == True:
-                if (p.NODES[i].current_attack_strategy_game / (count3 - 1)) > 0.4:
+                if (p.NODES[i].current_non_broadcast_strategy_game / (count3 - 1)) > 0.4:
                     p.NODES[i].miner = False
                     if p.NODES[i].id not in p.malicious:
                         p.malicious.append(p.NODES[i].id)
             else:
                 count5 = count5 + 1
-            p.NODES[i].current_attack_strategy_game = 0
-    # if len(p.l) > 2:
-    #     return 
-    if count5 > 2 and p.l != 2:
+            p.NODES[i].current_non_broadcast_strategy_game = 0
+   
+    if count5 > 2 and p.l != 5:
         p.l = p.l + 1
         StageThree(count5,TOTAL_Stakes)
 
@@ -138,12 +122,8 @@ def StageTwo(count,TOTAL_Stakes):
 
                 elif x == 0: #invalid
                     if len(list) < 5:
-                        # if ((0.4 * p.NODES[i].Stakes) * (p.NODES[i].count_invalid/p.NODES[i].games_blocks)) > 5 and ((0.4 * p.NODES[i].Stakes) * (p.NODES[i].count_invalid/p.NODES[i].games_blocks)) < 400:
-                        # p.NODES[i].Stakes = p.NODES[i].Stakes - ((0.4 * p.NODES[i].Stakes) * (p.NODES[i].count_invalid/p.NODES[i].games_blocks))
                         list.append((0.4 * p.NODES[i].Stakes) * (p.NODES[i].count_invalid/p.NODES[i].games_blocks))
-                # else:
-                #     p.NODES[i].Stakes = p.NODES[i].Stakes - ((0.4 * p.NODES[i].Stakes) * (p.NODES[i].count_invalid/p.NODES[i].games_blocks))
-                    # else:
+                
                     p.NODES[i].Stakes = p.NODES[i].Stakes - ((0.4 * p.NODES[i].Stakes) * (p.NODES[i].count_invalid/p.NODES[i].games_blocks))
                     p.NODES[i].count_invalid = p.NODES[i].count_invalid + 1
                     p.NODES[i].current_block_invalid_game = p.NODES[i].current_block_invalid_game + 1
@@ -153,20 +133,16 @@ def StageTwo(count,TOTAL_Stakes):
                     p.NODES[j].games_blocks += 1
                 elif y == 0:
                     if len(list) < 5:
-                        # if ((0.4 * p.NODES[j].Stakes) * (p.NODES[i].count_invalid/p.NODES[j].games_blocks)) > 5 and ((0.4 * p.NODES[j].Stakes) * (p.NODES[i].count_invalid/p.NODES[j].games_blocks)) < 400:
-                        # p.NODES[j].Stakes = p.NODES[j].Stakes - ((0.4 * p.NODES[j].Stakes) * (p.NODES[j].count_invalid/p.NODES[j].games_blocks))
                         list.append((0.4 * p.NODES[j].Stakes) * (p.NODES[i].count_invalid/p.NODES[j].games_blocks))
-                    # else:
+                
                     p.NODES[j].Stakes = p.NODES[j].Stakes - ((0.4 * p.NODES[j].Stakes) * (p.NODES[j].count_invalid/p.NODES[j].games_blocks))
-                #     p.NODES[j].Stakes = p.NODES[j].Stakes - ((0.4 * p.NODES[j].Stakes) * (p.NODES[j].count_invalid/p.NODES[j].games_blocks))
                     p.NODES[j].count_invalid = p.NODES[j].count_invalid + 1
                     p.NODES[j].current_block_invalid_game = p.NODES[j].current_block_invalid_game + 1
                     p.NODES[j].games_blocks += 1
      
         
     count3 = 0
-    # TOTAL_Stakes = sum([miner.Stakes for miner in p.NODES])
-    # print("Total stakes = ",p.TOTAL_Stakes)
+
     if count > 1:
         for i in range(p.Nn):
             if p.NODES[i].delegated == True:
@@ -218,7 +194,6 @@ def main():
         Node.generate_gensis_block()  # generate the gensis block for all miners
         # initiate initial events >= 1 to start with
         BlockCommit.generate_initial_events()
-        NoofRounds = 0
         while not Queue.isEmpty() and clock <= p.simTime:
             GameTheory()
             next_event = Queue.get_next_event()
@@ -234,31 +209,18 @@ def main():
                     i.miner = False
                 # if i.miner == True:
                 i.game_rounds += 1 
-            NoofRounds += 1
-            print("Round ",NoofRounds," completed")
             print("Clock time right now = ",clock)
         end = time.time()
         print("The time of execution of playing games among nodes is :", (end-start)*10**3, "ms for" , p.Nn, "Nodes")
         list.sort()
         list1.sort()
         print("Number of malicious nodes = ",len(p.malicious), "among",p.Nn,"Nodes")
-        print(list)
-        list3 = []
         for i in range(len(list1)):
             list1[i] *= 10 ** 20
-        for i in range(100):
-            list3.append(p.NODES[i].reputation)
-            # print(p.NODES[i].reputation)
-        # print(list3)
         x = list[len(list)-1]
         y = list1[len(list1)-1]
-        # for i in range(len(list)):
-        #     if list[i] > 5 and list[i] < 400:
-        #         x = list[i]
-        #         break
         print("Payoff Matrix for Stage Two Game")
         # Define the matrix
-        # print(x)
         
         payoff_matrix = [
                 ["0, 0", "0, " + "{:.2f}".format(-x)],
@@ -290,9 +252,6 @@ def main():
         rows = ["Broadcast", "Non Broadcast"]
         for i, row in enumerate(payoff_matrix):
             print("{:<15} {:<15} {:<15}".format(rows[i], *row))
-        # print(list1[-10::-1])
-        # for i in range(p.Nn):
-        #     print(p.NODES[i].Stakes,round(p.NODES[i].reputation,2))
             
         # for the AppendableBlock process transactions and
         # optionally verify the model implementation
