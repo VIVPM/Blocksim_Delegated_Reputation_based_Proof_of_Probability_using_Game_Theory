@@ -193,7 +193,16 @@ def main():
         start = time.time()
         Node.generate_gensis_block()  # generate the gensis block for all miners
         # initiate initial events >= 1 to start with
+        GameTheory()
         BlockCommit.generate_initial_events()
+        for i in p.NODES:
+            if i.miner == True:
+                i.Stakes = i.Stakes + (i.count_delegated/i.game_rounds * i.Stakes) + ((1 - (i.count_delegated/i.game_rounds)) * i.Stakes)
+                i.reputation = i.reputation + (i.count_delegated/i.game_rounds * i.reputation) + ((1 - (i.count_delegated/i.game_rounds)) * i.reputation)
+            if i.delegated == True:
+                i.delegated = False
+                i.miner = False
+            i.game_rounds += 1 
         while not Queue.isEmpty() and clock <= p.simTime:
             GameTheory()
             next_event = Queue.get_next_event()
@@ -207,7 +216,6 @@ def main():
                 if i.delegated == True:
                     i.delegated = False
                     i.miner = False
-                # if i.miner == True:
                 i.game_rounds += 1 
             print("Clock time right now = ",clock)
         end = time.time()
