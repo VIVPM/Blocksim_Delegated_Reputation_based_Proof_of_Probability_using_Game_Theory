@@ -96,17 +96,19 @@ class InputsConfig:
         UIreward = Breward / 32  # Reward for including an uncle
 
         ''' Node Parameters '''
-        Nn = 1000  # the total number of nodes in the network
+        Nn = 100  # the total number of nodes in the network
         NODES = []
         malicious = []
         l = 0
         from Models.Ethereum.Node import Node
         # here as an example we define three nodes by assigning a unique id for each one + % of hash (computing) power
+        TOTAL_Stakes = 0
         for i in range(Nn):
             NODES.append(Node(id = i,Stakes=random.randint(100,200)))
+            TOTAL_Stakes += NODES[i].Stakes
 
         ''' Simulation Parameters '''
-        simTime = 100  # the simulation length (in seconds)
+        simTime = 500  # the simulation length (in seconds)
         Runs = 1  # Number of simulation runs
 
         ''' Input configurations for AppendableBlock model '''
