@@ -83,11 +83,7 @@ class BlockCommit(BaseBlockCommit):
         if node.Stakes > 32:
                  blockTime = currentTime + c.Protocol(node) # time when miner x generate the next block
                  Scheduler.create_block_event(node,blockTime)
-    # def generate_next_block_new(node,currentTime):
-    #     if node.miner == True:
-    #              blockTime = currentTime + c.Protocol(node) # time when miner x generate the next block
-    #              Scheduler.create_block_event(node,blockTime)
-
+    
     def generate_initial_events():
             currentTime=0
             for node in p.NODES:
