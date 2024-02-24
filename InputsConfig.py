@@ -104,13 +104,13 @@ class InputsConfig:
         # here as an example we define three nodes by assigning a unique id for each one + % of hash (computing) power
         # TOTAL_Stakes = 0
         for i in range(Nn):
-            NODES.append(Node(id = i,Stakes=random.randint(1,100)))
+            NODES.append(Node(id = i,Stakes=random.randint(1,100),Reputation=(random.randint(80,100)/100)))
             # TOTAL_Stakes += NODES[i].Stakes
-        k = 30
-        x = 0.04
+        # k = 30
+        # x = 0.04
 
         ''' Simulation Parameters '''
-        simTime = 2000  # the simulation length (in seconds)
+        simTime = 1000  # the simulation length (in seconds)
         Runs = 1  # Number of simulation runs
 
         ''' Input configurations for AppendableBlock model '''

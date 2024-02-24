@@ -51,45 +51,26 @@ def StageThree(count3,TOTAL_Stakes):
             elif p.NODES[i].miner == True and p.NODES[j].miner == True:
                 x = random.randint(0,1)
                 y = random.randint(0,1)
-                if x == 1 and y == 1: #0 - non-broadcast, 1 - broadcast
-                    p.NODES[i].games_non_broadcast += 1
-                    p.NODES[j].games_non_broadcast += 1
-                elif x == 0 and y == 1:
-                    p.NODES[j].games_non_broadcast = p.NODES[j].games_non_broadcast + 1
+                if x == 0: #0 - non-broadcast, 1 - broadcast
                     p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast))
                     if len(list1) < 20:
                         list1.append((p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast)))
                     p.NODES[i].count_non_broadcast = p.NODES[i].count_non_broadcast + 1
                     p.NODES[i].games_non_broadcast += 1
                     p.NODES[i].current_non_broadcast_strategy_game += 1
-        
-                elif x == 1 and y == 0:
-                    p.NODES[j].games_non_broadcast = p.NODES[j].games_non_broadcast + 1
+                if y == 0:
                     p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast))
                     if len(list1) < 20:
                         list1.append((p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast)))
                    
                     p.NODES[j].count_non_broadcast = p.NODES[j].count_non_broadcast + 1
-                    p.NODES[i].games_non_broadcast += 1
+                    p.NODES[j].games_non_broadcast = p.NODES[j].games_non_broadcast + 1
                     p.NODES[j].current_non_broadcast_strategy_game += 1
-                  
-            
-                else:
-                    p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast))
-                    if len(list1) < 20:
-                        list1.append((p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast)))
-                   
-                    p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast))
-                    if len(list1) < 20:    
-                        list1.append((p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast)))
                     
-                    p.NODES[i].count_non_broadcast = p.NODES[i].count_non_broadcast + 1
-                    p.NODES[j].count_non_broadcast = p.NODES[j].count_non_broadcast + 1
+                if x == 1 and y == 1: 
                     p.NODES[i].games_non_broadcast += 1
                     p.NODES[j].games_non_broadcast += 1
-                    p.NODES[i].current_non_broadcast_strategy_game += 1
-                    p.NODES[j].current_non_broadcast_strategy_game += 1
-               
+                             
     
     count5 = 0
     if count3 > 1:
@@ -248,8 +229,8 @@ def main():
         print("Payoff Matrix for Stage Three Game")
      
         payoff_matrix = [
-            ["0, 0", "0, " + "{:.4f}".format(-p.x)],
-            ["{:.4f}".format(-p.x)+ ", 0" , "{:.4f}, {:.4f}".format(-p.x, -p.x)]
+            ["0, 0", "0, " + "{:.4f}".format(-y)],
+            ["{:.4f}".format(-y)+ ", 0" , "{:.4f}, {:.4f}".format(-y, -y)]
         ]
 
         # Print the header
@@ -262,7 +243,7 @@ def main():
         for i, row in enumerate(payoff_matrix):
             print("{:<15} {:<15} {:<15}".format(rows[i], *row))
         print(list1)
-        # print(list1)
+        
         # for the AppendableBlock process transactions and
         # optionally verify the model implementation
         # print(list1)

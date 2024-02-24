@@ -5,7 +5,7 @@ from Models.Node import Node as BaseNode
 
 #from ImportClasses import Block
 class Node(BaseNode):
-    def __init__(self,id,Stakes): #blockchain=[],transactionsPool=[],unclechain=[],blocks=0,balance=0,uncles=0,Stakes=0.0):
+    def __init__(self,id,Stakes,Reputation): #blockchain=[],transactionsPool=[],unclechain=[],blocks=0,balance=0,uncles=0,Stakes=0.0):
 
         '''Initialize a new miner named name with hashrate measured in hashes per second.'''
         super().__init__(id)#,blockchain,transactionsPool,blocks,balance)
@@ -26,7 +26,7 @@ class Node(BaseNode):
         self.count_non_broadcast = 5 # Number of times miner used non_broadcast strategy
         self.current_block_invalid_game = 0 #Current number of invalid blocks created by node while playing with n delegated nodes
         self.current_non_broadcast_strategy_game = 0 #Current number times the miner node didn't broadcast the block while playing with n miner nodes
-        self.reputation = (random.randint(80,100))
+        self.reputation = Reputation
 
     def generate_gensis_block():
         from InputsConfig import InputsConfig as p
