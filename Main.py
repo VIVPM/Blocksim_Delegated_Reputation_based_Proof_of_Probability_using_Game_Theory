@@ -55,6 +55,7 @@ def StageThree(count3,TOTAL_Stakes):
                     p.NODES[i].reputation = p.NODES[i].reputation - (p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast))
                     if len(list1) < 20:
                         list1.append((p.NODES[i].reputation * (p.NODES[i].Stakes/TOTAL_Stakes) * (p.NODES[i].count_non_broadcast/p.NODES[i].games_non_broadcast)))
+                    # print(list1[len(list1)-1])
                     p.NODES[i].count_non_broadcast = p.NODES[i].count_non_broadcast + 1
                     p.NODES[i].games_non_broadcast += 1
                     p.NODES[i].current_non_broadcast_strategy_game += 1
@@ -62,7 +63,7 @@ def StageThree(count3,TOTAL_Stakes):
                     p.NODES[j].reputation = p.NODES[j].reputation - (p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast))
                     if len(list1) < 20:
                         list1.append((p.NODES[j].reputation * (p.NODES[j].Stakes/TOTAL_Stakes) * (p.NODES[j].count_non_broadcast/p.NODES[j].games_non_broadcast)))
-                   
+                    # print(list1[len(list1)-1])
                     p.NODES[j].count_non_broadcast = p.NODES[j].count_non_broadcast + 1
                     p.NODES[j].games_non_broadcast = p.NODES[j].games_non_broadcast + 1
                     p.NODES[j].current_non_broadcast_strategy_game += 1
@@ -223,6 +224,7 @@ def main():
 
         # Print the rows of the matrix
         rows = ["Valid Block", "Invalid Block"]
+        y = p.x
         for i, row in enumerate(payoff_matrix):
             print("{:<15} {:<15} {:<15}".format(rows[i], *row))
         
@@ -242,7 +244,6 @@ def main():
         rows = ["Broadcast", "Non Broadcast"]
         for i, row in enumerate(payoff_matrix):
             print("{:<15} {:<15} {:<15}".format(rows[i], *row))
-        print(list1)
         
         # for the AppendableBlock process transactions and
         # optionally verify the model implementation

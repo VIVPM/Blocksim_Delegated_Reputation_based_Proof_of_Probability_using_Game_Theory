@@ -107,7 +107,7 @@ class InputsConfig:
             NODES.append(Node(id = i,Stakes=random.randint(1,100),Reputation=(random.randint(80,100)/100)))
             # TOTAL_Stakes += NODES[i].Stakes
         # k = 30
-        # x = 0.04
+        x = 0.04
 
         ''' Simulation Parameters '''
         simTime = 1000  # the simulation length (in seconds)
