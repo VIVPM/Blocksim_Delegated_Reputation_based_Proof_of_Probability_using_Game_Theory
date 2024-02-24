@@ -169,12 +169,12 @@ def StageOne():
     for i in p.NODES:
         if i.Stakes > max1:
             max1 = i.Stakes
-        # if i.Stakes < min1 and i.Stakes >= 32:
-        #     min1 = i.Stakes
+        if i.Stakes < min1 and i.Stakes >= 32:
+            min1 = i.Stakes
     TOTAL_Stakes = sum([miner.Stakes for miner in p.NODES])
-    X = (32 + max1 + p.k)/2
+    X = max1 - min1/2
     for i in p.NODES:
-        if i.Stakes >= 32 and i.Stakes <= X:
+        if i.Stakes >= min1 and i.Stakes <= X:
             i.delegated = True
             i.count_delegated += 1
             count = count + 1
