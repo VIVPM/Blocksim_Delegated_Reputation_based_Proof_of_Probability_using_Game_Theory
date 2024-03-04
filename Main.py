@@ -86,9 +86,19 @@ def StageThree(count3,TOTAL_Stakes):
                 count5 = count5 + 1
             p.NODES[i].current_non_broadcast_strategy_game = 0
     
-    if count5 > 2 and p.l != 3:
+    if count5 > 1 and p.l != 3:
         p.l = p.l + 1
         StageTwo(count5,TOTAL_Stakes)
+    minimum = 999
+    ind = -1
+    if count5 == 0:
+        for i in range(p.Nn):
+            x = (p.NODES[i].count_invalid/p.NODES[i].games_blocks) + (p.NODES[i].count_non_broadcast/p.NODES[i].games_blocks)
+            if x < minimum:
+                minimum = x
+                ind = i
+        p.NODES[ind].Stakes += 25
+        p.NODES[ind].reputation += 0.05
 
 def StageTwo(count,TOTAL_Stakes):
     for i in range(p.Nn):
