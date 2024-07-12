@@ -27,20 +27,64 @@ To run the simulator, one needs to trigger the main class *Main.py* either from 
 
 or using any Python editor such as Spyder.
 
-## Game theory in Blockchain
-Game theory in blockchain involves applying mathematical models to analyze and optimize the behavior and interactions of various participants within the blockchain ecosystem. It focuses on incentivizing honest behavior and deterring malicious activities by modeling the actions of miners, validators, and other stakeholders as strategic games. By designing protocols that align individual incentives with the overall network's health, game theory helps ensure consensus, security, and efficiency in blockchain operations. This approach is particularly crucial in Proof of Stake and Proof of Work systems, where the goal is to maintain a decentralized, robust, and scalable network. The design is focused on creating game theoretic model for stake based consensus algorithm which is known as "Delegated Reputation based Proof of Probability using Game Theory" (DRPoP-GT) and it is evaluated using performance metrics across various scenarios and experimental parameters.
+# Delegated Reputation-based Proof of Probability using Game Theory (DRPoP-GT)
 
-In Main.py file, Initially the nodes are filtered based on stakes, the eligible nodes will be selected as Delegated nodes and these nodes will play two-satge game. In the two-stage game, there are two stages: first stage game and second stage game. Both stage games have separate functions. Furthermore, DRPoP-GT will be running in Ethereum Blockchain. The code for setting transactions, blocks, nodes can be found in Models/Ethereum folder. Since the model is Ethereum, model is chosen as 2 in InputsConfig.py. In this algorithm, the results of first stage game is utilized in the second stage game. After completion of two-stage game, the eligible node is selected as miner and it receives the rewards. In every stage, there will be a penalty imposed after node behaves malicious in any stage in the game. The comments are written in Main.py file.
+## Overview
+
+This project focuses on applying game theory to blockchain technology. The goal is to analyze and optimize the behavior and interactions of various participants within the blockchain ecosystem. By modeling actions of miners, validators, and other stakeholders as strategic games, we incentivize honest behavior and deter malicious activities. This ensures consensus, security, and efficiency in blockchain operations, particularly in Proof of Stake and Proof of Work systems. The DRPoP-GT consensus algorithm is evaluated using performance metrics across various scenarios and experimental parameters.
+
+## Implementation Details
+
+### Main.py
+
+The `Main.py` file handles the initial filtering of nodes based on stakes. Eligible nodes are selected as delegated nodes, which then participate in a two-stage game:
+
+1. **First-Stage Game**
+2. **Second-Stage Game**
+
+The results of the first-stage game are utilized in the second-stage game. After completing the two-stage game, an eligible node is selected as the miner and receives rewards. A penalty is imposed at each stage if a node behaves maliciously. Detailed comments are provided in the `Main.py` file.
+
+### Models/Ethereum
+
+DRPoP-GT operates within the Ethereum Blockchain. The code for setting transactions, blocks, and nodes can be found in the `Models/Ethereum` folder. The model is specified as model 2 in the `InputsConfig.py` file.
 
 ## Statistics and Results
 
-The results of the simulator is printed in an excel file at the end of the simulation. The excel sheets are generated from Statistics.py file. The results include the blockchain ledger, number of blocks mined, number of stale (uncles) blocks and the rewards gained by each miner etc. The results can be found in results folder. There are three folders: Nodes, Simulation, Transactions. 
-The Nodes folder shows the number of nodes used in simulation.
-The Simulation folder shows the varying simulation time used in simulation.
-The Transaction folder shows the number of transactions completed in simulation.
-All the results are tabulated in Excel sheets varying parameters across nodes, transactions and simulation time.
-The drpopgt images folder show all the results in images which include computational overhead, number of malicious nodes, payoff matrix for both stage games.
-In this folder, there are three folders: load, nodes, simulation.
-The nodes vary from 1000 to 5000. The transactions vary from 10000 to 50000. The simulation vary from 60 minutes to 300 minutes.
+Simulation results are printed in an Excel file at the end of the simulation. The Excel sheets, generated from the `Statistics.py` file, include:
 
-The REU.ipynb file provides are necessary calculations regarding transaction time, block creation time, computational overhead, number of malicious nodes, and fairness. Import the excel sheets present in results folder and run all cells to get final output. The graphs are plotted using matplotlib for analysing DRPoP-GT consensus algorith with existing algorithm.
+- Blockchain ledger
+- Number of blocks mined
+- Number of stale (uncle) blocks
+- Rewards gained by each miner
+
+Results are stored in the `results` folder, which contains three subfolders:
+
+1. **Nodes**: Shows the number of nodes used in the simulation.
+2. **Simulation**: Shows the varying simulation times used in the simulation.
+3. **Transactions**: Shows the number of transactions completed in the simulation.
+
+All results are tabulated in Excel sheets, varying parameters across nodes, transactions, and simulation time.
+
+### drpopgt_images Folder
+
+The `drpopgt_images` folder contains images of the results, including:
+
+- Computational overhead
+- Number of malicious nodes
+- Payoff matrix for both stage games
+
+This folder has three subfolders:
+
+1. **Load** (varies from 10000 to 50000)
+2. **Nodes** (varies from 1000 to 5000)
+3. **Simulation** (varies from 60 minutes to 300 minutes)
+
+### REU.ipynb
+
+The `REU.ipynb` file provides calculations regarding transaction time, block creation time, computational overhead, number of malicious nodes, and fairness. Import the Excel sheets from the `results` folder and run all cells to get the final output. Graphs are plotted using Matplotlib to analyze the DRPoP-GT consensus algorithm compared to existing algorithms.
+
+## Usage
+
+1. Run `Main.py` to perform the simulation.
+2. Check the `results` folder for Excel files containing the simulation data.
+3. Use the `REU.ipynb` notebook for further analysis and visualization.
