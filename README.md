@@ -28,7 +28,7 @@ To run the simulator, one needs to trigger the main class *Main.py* either from 
 or using any Python editor such as Spyder.
 
 ## Game theory in Blockchain
-
+Game theory in blockchain involves applying mathematical models to analyze and optimize the behavior and interactions of various participants within the blockchain ecosystem. It focuses on incentivizing honest behavior and deterring malicious activities by modeling the actions of miners, validators, and other stakeholders as strategic games. By designing protocols that align individual incentives with the overall network's health, game theory helps ensure consensus, security, and efficiency in blockchain operations. This approach is particularly crucial in Proof of Stake and Proof of Work systems, where the goal is to maintain a decentralized, robust, and scalable network. My design is focused on Proof of Stake consensus algorithm which is known as "Delegated Reputation based Proof of Probability using Game Theory" and evaluated its performance metrics across various scenarios and experimental parameters.
 
 
 ## Statistics and Results
