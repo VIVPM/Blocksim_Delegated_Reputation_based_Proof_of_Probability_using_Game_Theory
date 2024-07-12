@@ -41,7 +41,4 @@ The Transaction folder shows the number of transactions completed in simulation.
 All the results are tabulated in Excel sheets varying parameters across nodes, transactions and simulation time.
 The drpopgt images folder show all the results in images which include computational time, number of malicious nodes, payoff matrix for both stage games.
 In this folder, there are three folders: load, nodes, simulation.
-The Nodes folder shows the number of nodes used in simulation.
-The Simulation folder shows the varying simulation time used in simulation.
-The Transaction folder shows the number of transactions completed in simulation.
 The nodes vary from 1000 to 5000. The transactions vary from 10000 to 50000. The simulation vary from 60 minutes to 300 minutes.
