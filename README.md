@@ -27,6 +27,10 @@ To run the simulator, one needs to trigger the main class *Main.py* either from 
 
 or using any Python editor such as Spyder.
 
+## Game theory in Blockchain
+
+
+
 ## Statistics and Results
 
 The results of the simulator is printed in an excel file at the end of the simulation. The results include the blockchain ledger, number of blocks mined, number of stale (uncles) blocks and the rewards gained by each miner etc. 
