@@ -34,7 +34,7 @@ In Main.py file, Initially the nodes are filtered based on stakes, the eligible 
 
 ## Statistics and Results
 
-The results of the simulator is printed in an excel file at the end of the simulation. The results include the blockchain ledger, number of blocks mined, number of stale (uncles) blocks and the rewards gained by each miner etc. The results can be found in results folder. There are three folders: Nodes, Simulation, Transactions. 
+The results of the simulator is printed in an excel file at the end of the simulation. The excel sheets are generated from Statistics.py file. The results include the blockchain ledger, number of blocks mined, number of stale (uncles) blocks and the rewards gained by each miner etc. The results can be found in results folder. There are three folders: Nodes, Simulation, Transactions. 
 The Nodes folder shows the number of nodes used in simulation.
 The Simulation folder shows the varying simulation time used in simulation.
 The Transaction folder shows the number of transactions completed in simulation.
