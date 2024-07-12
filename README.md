@@ -27,7 +27,7 @@ To run the simulator, one needs to trigger the main class *Main.py* either from 
 
 or using any Python editor such as Spyder.
 
-# Delegated Reputation-based Proof of Probability using Game Theory (DRPoP-GT)
+## Delegated Reputation-based Proof of Probability using Game Theory (DRPoP-GT)
 
 ## Overview
 
