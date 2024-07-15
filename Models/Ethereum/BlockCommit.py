@@ -80,7 +80,7 @@ class BlockCommit(BaseBlockCommit):
 
     # Upon generating or receiving a block, the miner start working on the next block as in POW
     def generate_next_block(node,currentTime):
-        if node.Stakes > 32:
+        if node.Stakes > 32: #Miner can generate block only when it has sufficient number of stakes
                  blockTime = currentTime + c.Protocol(node) # time when miner x generate the next block
                  Scheduler.create_block_event(node,blockTime)
     
